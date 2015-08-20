@@ -1,0 +1,41 @@
+<input id="searchInput" type="text" placeholder="type something">
+<ul id="resultsList"></ul>
+<script>
+
+  var goFish = function(event){
+    var query = $("#searchInput").val();
+
+    if(query != "") {
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/search?q=" + query,
+        success: function(data) {
+          var html = "";
+          for (i = 0; i < data.length; i++) {
+            if(i==0){ html += "<li class='active'>" } else { html += "<li>" }
+            html += data[i] + "</li>";
+          };
+          $("#resultsList").html(html);
+        }
+      });
+    };
+  };
+
+  $("#searchInput").on("input", goFish);
+
+  $(document).on("keyup", function(event){
+    if(event.keyCode == 38) {
+      if ($("#resultsList .active").prev()[0]) {
+        $("#resultsList .active").removeClass("active").prev().addClass("active")
+      };
+    } else if (event.keyCode == 40) {
+      if ($("#resultsList .active").next()[0]) {
+        $("#resultsList .active").removeClass("active").next().addClass("active")
+      };
+    } else if (event.keyCode == 13) {
+      $("#searchInput").val($("#resultsList .active").html());
+      goFish();
+    }
+  });
+</script>
