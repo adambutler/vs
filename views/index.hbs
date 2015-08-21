@@ -37,7 +37,7 @@
     };
   };
 
-  $("#searchInput").on("input", debounce(goFish, 300));
+  $("#searchInput").on("input", debounce(goFish, 200));
 
   $(document).on("keyup", function(event){
     if(event.keyCode == 38) {
