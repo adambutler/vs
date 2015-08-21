@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body, input {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -53,6 +57,7 @@ li.active {
     right: 0;
     top: 0;
     height: 60px;
+    width: 100%;
   }
 
   ul {
