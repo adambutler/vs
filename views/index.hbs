@@ -1,6 +1,21 @@
-<input id="searchInput" type="text" placeholder="type something">
+<input id="searchInput" type="text" placeholder="type something (e.g apple)">
 <ul id="resultsList"></ul>
 <script>
+
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
 
   var goFish = function(event){
     var query = $("#searchInput").val();
@@ -22,7 +37,7 @@
     };
   };
 
-  $("#searchInput").on("input", goFish);
+  $("#searchInput").on("input", debounce(goFish, 300));
 
   $(document).on("keyup", function(event){
     if(event.keyCode == 38) {
@@ -38,4 +53,9 @@
       goFish();
     }
   });
+
+  $(document).on("click", "#resultsList li", function(event) {
+    $("#searchInput").val($(this).html());
+    goFish();
+  })
 </script>

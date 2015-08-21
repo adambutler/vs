@@ -1,13 +1,11 @@
 body, input {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-}
+  font-weight: 300; }
 
 body {
   padding: 0;
   margin: 0;
-  text-align: center;
-}
+  text-align: center; }
 
 input {
   position: absolute;
@@ -21,8 +19,7 @@ input {
   font-size: 40px;
   outline: none;
   font-weight: 100;
-  text-align: center;
-}
+  text-align: center; }
 
 ul {
   position: absolute;
@@ -34,27 +31,22 @@ ul {
   padding: 0;
   font-size: 28px;
   line-height: 20px;
-  height: 60vh;
-}
+  height: 60vh; }
 
 li {
-  padding: 20px;
-}
+  padding: 20px; }
 
 li.active {
   background: #eee;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
-@media all and (max-width:  767px) {
+@media all and (max-width: 767px) {
   input {
     font-size: 20px;
     left: 0;
     right: 0;
     top: 0;
-    height: 60px;
-  }
-
+    height: 60px; }
   ul {
     left: 10px;
     right: 10px;
@@ -62,10 +54,8 @@ li.active {
     top: 80px;
     height: auto;
     font-size: 20px;
-    overflow: hidden;
-  }
-
+    overflow: hidden; }
   li {
-    padding: 10px;
-  }
-}
+    padding: 10px; } }
+
+/*# sourceMappingURL=style.css.map */
